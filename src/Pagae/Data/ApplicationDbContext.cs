@@ -24,5 +24,7 @@ namespace Pagae.Data
         }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<Punishment> Punishment { get; set; }
+        public DbSet<Vote> Vote { get; set; }
     }
 }

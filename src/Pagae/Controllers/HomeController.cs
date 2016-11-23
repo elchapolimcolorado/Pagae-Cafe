@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Pagae.Data;
 using Pagae.Models;
 using Pagae.Models.HomeViewModels;
 using System.Linq;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Pagae.Controllers
 {
@@ -11,14 +15,48 @@ namespace Pagae.Controllers
     public class HomeController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(UserManager<ApplicationUser> userManager)
+        public HomeController(
+            UserManager<ApplicationUser> userManager,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            //Verifica se existe alguma punição em votação
+            var punishments = _context.Punishment
+                .Where(x => x.Status == PunishmentStatus.Voting)
+                .Where(x => x.Date.AddDays(3).Date > DateTime.Now.Date)
+                .ToList();
+            Punishment punishmentToVote = null;
+            foreach(var p in punishments)
+            {
+                var v = _context.Vote.Where(x => x.PunishmentId == p.Id).Where(x => x.UserId == _userManager.GetUserId(User)).FirstOrDefault();
+                if(v == null)
+                {
+                    punishmentToVote = p;
+                    break;
+                }
+            }
+            if(punishmentToVote != null)
+            {
+                return RedirectToAction(nameof(Index), "Vote");
+            }
+
+            var ApprovedPunishments = _context.Punishment
+                .Where(x => x.Status == PunishmentStatus.Approved)
+                .Where(x => x.Date.AddDays(20).Date >= DateTime.Now.Date)
+                .ToList();
+            var punishmentMessages = new List<string>();
+            foreach(var p in ApprovedPunishments){
+                var punished = _userManager.FindByIdAsync(p.PunishedId).Result;
+                punishmentMessages.Add($"{punished.Name} was punished by 1 credit because {p.Reason}");
+            }
+            TempData["PunishmentMessages"] = punishmentMessages;
             return View(_userManager.Users.OrderBy(x => x.Credits).ToList());
         }
 

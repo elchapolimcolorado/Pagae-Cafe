@@ -1,0 +1,43 @@
+﻿@model Pagae.Models.VoteViewModels.VoteViewModel
+
+@{
+    ViewData["Title"] = "Vote";
+}
+
+<form asp-controller="Vote" asp-action="Index" method="post" class="form-horizontal">
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            @Html.HiddenFor(x => x.PunishmentId)
+            @Model.Question
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @Html.RadioButtonFor(x => x.InFavor, true) Yes
+            <span asp-validation-for="InFavor" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            @Html.RadioButtonFor(x => x.InFavor, false) No
+        </div>
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div>
+                <button type="submit" class="btn btn-success">Vote</button>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="row">
+        To punish someone else, <a asp-area="" asp-controller="Punishment" asp-action="SomeoneElse">click here</a>. But I don't think that wasn't Daniel who did something wrong...
+    </div>
+</form>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

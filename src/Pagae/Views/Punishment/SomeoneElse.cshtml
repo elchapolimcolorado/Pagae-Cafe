@@ -1,0 +1,44 @@
+﻿@model Pagae.Models.PunishmentViewModels.PunishmentViewModel
+
+@{
+    ViewData["Title"] = "Punishment";
+}
+
+<form asp-controller="Punishment" asp-action="SomeoneElse" method="post" class="form-horizontal">
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            @Html.DropDownListFor(x => x.PunishedId, new SelectList(Model.Users, "Id", "Name"), "Who should be punished?", new { @class = "form-control" })
+            <span asp-validation-for="PunishedId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            Reason
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            @Html.TextAreaFor(x => x.Reason, new { @class = "form-control" })
+            <span asp-validation-for="Reason" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div>
+                <button type="submit" class="btn btn-success" aspne>Punish</button>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

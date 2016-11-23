@@ -1,0 +1,39 @@
+﻿@model Pagae.Models.PunishmentViewModels.PunishmentViewModel
+
+@{
+    ViewData["Title"] = "Punishment";
+}
+
+<form asp-controller="Punishment" asp-action="Index" method="post" class="form-horizontal">
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            Yeah, I know... Probably he did something very wrong, but why do you want to punish Daniel? I wanna know, I am curious...
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            @Html.TextAreaFor(x => x.Reason, new { @class = "form-control" })
+            <span asp-validation-for="Reason" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div>
+                <button type="submit" class="btn btn-success">Punish</button>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="row">
+        To punish someone else, <a asp-area="" asp-controller="Punishment" asp-action="SomeoneElse">click here</a>. But I don't think that wasn't Daniel who did something wrong...
+    </div>
+</form>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
