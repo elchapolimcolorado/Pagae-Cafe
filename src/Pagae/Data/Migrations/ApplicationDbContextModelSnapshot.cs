@@ -163,6 +163,8 @@ namespace Pagae.Data.Migrations
                     b.Property<string>("UserName")
                         .HasAnnotation("MaxLength", 256);
 
+                    b.Property<DateTime?>("LastUpdateDate");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")

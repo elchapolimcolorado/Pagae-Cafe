@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System;
 
 namespace Pagae.Models
 {
@@ -7,5 +8,6 @@ namespace Pagae.Models
     {
         public string Name { get; set; }
         public int Credits { get; set; }
+        public DateTime? LastUpdateDate { get; set; }
     }
 }

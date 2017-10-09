@@ -1,0 +1,12 @@
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\bin\Debug\netcoreapp1.0\Pagae.deps.json
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\bin\Debug\netcoreapp1.0\Pagae.runtimeconfig.json
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\bin\Debug\netcoreapp1.0\Pagae.runtimeconfig.dev.json
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\bin\Debug\netcoreapp1.0\Pagae.dll
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\bin\Debug\netcoreapp1.0\Pagae.pdb
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\obj\Debug\netcoreapp1.0\Pagae.csproj.CoreCompileInputs.cache
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\obj\Debug\netcoreapp1.0\UserSecretsAssemblyInfo.cs
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\obj\Debug\netcoreapp1.0\Pagae.AssemblyInfoInputs.cache
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\obj\Debug\netcoreapp1.0\Pagae.AssemblyInfo.cs
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\obj\Debug\netcoreapp1.0\Pagae.dll
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\obj\Debug\netcoreapp1.0\Pagae.pdb
+C:\Users\Thiago\Documents\GitHub\Pagae-Cafe\src\Pagae\obj\Debug\netcoreapp1.0\Pagae.csprojResolveAssemblyReference.cache

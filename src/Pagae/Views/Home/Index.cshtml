@@ -36,6 +36,9 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Credits)
                     </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastUpdateDate)
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -47,6 +50,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Credits)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastUpdateDate)
                         </td>
                     </tr>
                 }

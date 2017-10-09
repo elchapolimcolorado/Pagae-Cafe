@@ -57,7 +57,7 @@ namespace Pagae.Controllers
                 punishmentMessages.Add($"{punished.Name} was punished by 1 credit because {p.Reason}");
             }
             TempData["PunishmentMessages"] = punishmentMessages;
-            return View(_userManager.Users.OrderBy(x => x.Credits).ToList());
+            return View(_userManager.Users.OrderBy(x =>  x.Credits).ThenBy(y => y.LastUpdateDate).ToList());
         }
 
         public IActionResult Pay()
@@ -87,6 +87,7 @@ namespace Pagae.Controllers
             get.Wait();
             var currentUser = get.Result;
             currentUser.Credits = currentUser.Credits + selectedUsersIds.Count;
+            currentUser.LastUpdateDate = DateTime.Now;
             var updateCurrentUser = _userManager.UpdateAsync(currentUser);
             updateCurrentUser.Wait();
 
@@ -122,6 +123,7 @@ namespace Pagae.Controllers
             get.Wait();
             var currentUser = get.Result;
             currentUser.Credits = currentUser.Credits + selectedUsersIds.Count;
+            currentUser.LastUpdateDate = DateTime.Now;
             var updateCurrentUser = _userManager.UpdateAsync(currentUser);
             updateCurrentUser.Wait();
 
