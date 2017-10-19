@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Pagae.Models
 {
@@ -8,6 +9,7 @@ namespace Pagae.Models
     {
         public string Name { get; set; }
         public int Credits { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime? LastUpdateDate { get; set; }
     }
 }
